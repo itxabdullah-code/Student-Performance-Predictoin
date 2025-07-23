@@ -15,7 +15,7 @@ st.set_page_config(page_title="Student Performance Predictor", page_icon="🎓",
 st.markdown("""
     <style>
     .stApp {
-        background-color: #E9E3DF;
+        background-color: #273F4F;
         color: #000000;
     }
 
