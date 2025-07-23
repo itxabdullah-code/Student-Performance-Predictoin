@@ -11,40 +11,51 @@ rf_model = pickle.load(open("RF_model", "rb"))
 # Page setup
 st.set_page_config(page_title="Student Performance Predictor", page_icon="🎓", layout="centered")
 
-# Custom CSS for styling
+# Custom CSS using only specified colors
 st.markdown("""
     <style>
-    body {
-        background-color: #113F67;
-    }
     .stApp {
-        background-color: #F0F2F6;
+        background-color: #E9E3DF;
+        color: #000000;
     }
+
     h1 {
-        background: linear-gradient(to right, #3A0CA3, #7209B7, #F72585);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 42px;
+        color: #FF7A30;
         text-align: center;
+        font-size: 42px;
         padding-bottom: 10px;
     }
+
     .block-container {
         padding: 2rem 2rem;
     }
+
     .stButton>button {
-        background-color: #3A0CA3;
-        color: white;
+        background-color: #FF7A30;
+        color: #000000;
         padding: 0.6rem 1.2rem;
         border-radius: 10px;
         border: none;
         font-size: 16px;
     }
+
     .stButton>button:hover {
-        background-color: #7209B7;
+        background-color: #465C88;
+        color: white;
     }
-    .sidebar .sidebar-content {
-        background-color: #E3DFFF;
-        padding: 1rem;
+
+    .stSidebar, .css-1d391kg, .css-1d3w5wq {
+        background-color: #465C88 !important;
+        color: #E9E3DF;
+    }
+
+    .st-radio label, .st-selectbox label, .st-slider label, .st-number-input label {
+        color: #000000 !important;
+    }
+
+    .st-radio div, .st-selectbox div, .st-slider div, .st-number-input div {
+        background-color: white !important;
+        color: #000000 !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -79,7 +90,7 @@ school_support = 1 if school_support == "Yes" else 0
 internet = 1 if internet == "Yes" else 0
 
 # Prepare input array
-input_data = np.array([[age, study_hours, failures, absences, school_support, internet, parent_edu,gpa]])
+input_data = np.array([[age, study_hours, failures, absences, school_support, internet, parent_edu, gpa]])
 
 # Define grade categories
 grades = {
